@@ -416,7 +416,7 @@ class TensorBase(object):
 
     def __itruediv__(self, tensor):
         """
-        Performs in-place element-wise subtraction between two tensors
+        Performs in-place element-wise division between two tensors
 
 
         Parameters
@@ -472,7 +472,7 @@ class TensorBase(object):
 
     def abs_(self):
         """
-        Replaces tensor values with its absolute value
+        Replaces tensor values with their absolute value
 
         Parameters
         ----------
@@ -521,7 +521,7 @@ class TensorBase(object):
 
     def sqrt(self):
         """
-        Performs square-root of tensor and returns a new tensor.
+        Performs element-wise square-root of tensor and returns a new tensor.
 
         Parameters
         ----------
@@ -537,7 +537,7 @@ class TensorBase(object):
 
     def sqrt_(self):
         """
-        Peforms square-root of the tensor, in-place
+        Peforms in-place square-root of the tensor
 
         Parameters
         ----------
@@ -553,7 +553,7 @@ class TensorBase(object):
 
     def dim(self):
         """
-        Returns an integer of the number of dimensions of this tensor.
+        Returns an integer representing the number of dimensions of this tensor.
 
         Parameters
         ----------
@@ -605,7 +605,7 @@ class TensorBase(object):
 
     def ceil(self):
         """
-        Returns the ceilling of the input tensor elementwise.
+        Returns the element-wise ceilling of the input tensor.
 
         Parameters
         ----------
@@ -621,7 +621,7 @@ class TensorBase(object):
 
     def ceil_(self):
         """
-        Returns the ceilling of the input tensor elementwise.
+        Returns the element-wise ceilling of the input tensor.
 
         Parameters
         ----------
