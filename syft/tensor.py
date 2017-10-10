@@ -133,20 +133,20 @@ class TensorBase(object):
         return self.__class__(*args, **kwargs)
 
     def _calc_mul_depth(self, tensor1, tensor2):
-        if isinstance(tensor1, TensorBase) and isinstance(tensor2, TensorBase):
-            self._mul_depth = max(tensor1._mul_depth, tensor2._mul_depth) + 1
-        elif isinstance(tensor1, TensorBase):
-            self._mul_depth = tensor1._mul_depth + 1
-        elif isinstance(tensor2, TensorBase):
-            self._mul_depth = tensor2._mul_depth + 1
+        new_depth = 0
+        if isinstance(tensor1, TensorBase):
+            new_depth = tensor1._mul_depth + 1
+        if isinstance(tensor2, TensorBase):
+            new_depth = max(new_depth, tensor2._mul_depth + 1)
+        self._mul_depth = new_depth
 
     def _calc_add_depth(self, tensor1, tensor2):
-        if isinstance(tensor1, TensorBase) and isinstance(tensor2, TensorBase):
-            self._add_depth = max(tensor1._add_depth, tensor2._add_depth) + 1
-        elif isinstance(tensor1, TensorBase):
-            self._add_depth = tensor1._add_depth + 1
-        elif isinstance(tensor2, TensorBase):
-            self._add_depth = tensor2._add_depth + 1
+        new_depth = 0
+        if isinstance(tensor1, TensorBase):
+            new_depth = tensor1._add_depth + 1
+        if isinstance(tensor2, TensorBase):
+            new_depth = max(new_depth, tensor2._add_depth + 1)
+        self._add_depth = new_depth
 
     def encrypt(self, pubkey):
         """
